@@ -14,15 +14,11 @@ final class SignPresenter extends Nette\Application\UI\Presenter
 	/** @persistent */
 	public string $backlink = '';
 
-	private Forms\SignInFormFactory $signInFactory;
 
-	private Forms\SignUpFormFactory $signUpFactory;
-
-
-	public function __construct(Forms\SignInFormFactory $signInFactory, Forms\SignUpFormFactory $signUpFactory)
-	{
-		$this->signInFactory = $signInFactory;
-		$this->signUpFactory = $signUpFactory;
+	public function __construct(
+		private Forms\SignInFormFactory $signInFactory,
+		private Forms\SignUpFormFactory $signUpFactory,
+	) {
 	}
 
 
