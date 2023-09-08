@@ -1,4 +1,4 @@
-`<?php
+<?php
 
 declare(strict_types=1);
 
@@ -65,4 +65,4 @@ final class HomePresenter extends Nette\Application\UI\Presenter
         // Your shutdown logic here
         parent::shutdown($response);
     }
-}`
+}
