@@ -19,10 +19,6 @@ class Bootstrap
 
 		$configurator->setTempDirectory($appDir . '/temp');
 
-		$configurator->createRobotLoader()
-			->addDirectory(__DIR__)
-			->register();
-
 		$configurator->addConfig($appDir . '/config/common.neon');
 		$configurator->addConfig($appDir . '/config/services.neon');
 		$configurator->addConfig($appDir . '/config/local.neon');
