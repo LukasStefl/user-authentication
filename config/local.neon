@@ -1,7 +1,0 @@
-parameters:
-
-
-database:
-	dsn: 'mysql:host=127.0.0.1;dbname=Presenter_lifecycle'
-	user: root
-	password: root
