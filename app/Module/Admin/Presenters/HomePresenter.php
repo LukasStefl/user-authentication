@@ -2,67 +2,51 @@
 
 declare(strict_types=1);
 
-namespace App\Presenters;
+use Nette\Application\UI\Presenter;
 
-use Nette;
-
-final class HomePresenter extends Nette\Application\UI\Presenter
+class HomePresenter extends Presenter
 {
-    // Constructor with dependency injection
     public function __construct()
-    {   
-        bdump("__construct: " . microtime());
+    {
+        // Inicializace presenteru
         parent::__construct();
-        // Inject your dependencies here
     }
-    // Startup method
+
     protected function startup()
     {
+        // Příprava - inicializace společných proměnných
         parent::startup();
-        bdump("startup: " . microtime());
-        // Your startup logic here
     }
-    // Action methods
-    public function actionDefault()
-    {
-        bdump("actionAdd: " . microtime());
-        // Add functionality here
-    }
-    // Handle Signal methods
-    public function handleSaveSignal()
-    {
-        bdump("handleSaveSignal: " . microtime());
-        // Handle save signal here
-    }
-    // Before render method
-    public function beforeRender()
-    {
-        bdump("beforeRender: " . microtime());
-        parent::beforeRender();
-        // Prepare data before rendering here
-    }
+
     public function renderDefault()
     {
-        bdump("renderDefault: " . microtime());
-        // Prepare data before rendering here
+        // Zpracování vstupního parametru - akce "default"
+        $this->template->variable = 'Hodnota pro pohled';
     }
-    public function afterRender()
+
+    protected function beforeRender()
     {
-        bdump("afterRender: " . microtime());
+        // Příprava pohledu
+        parent::beforeRender();
+    }
+
+    protected function createComponentForm()
+    {
+        // Manipulace s komponentami - vytvoření formuláře
+        $form = new \Nette\Application\UI\Form();
+        // ... inicializace formuláře
+        return $form;
+    }
+
+    protected function afterRender()
+    {
+        // Zpracování výstupu
         parent::afterRender();
-        // Prepare data before rendering here
     }
-    // Render method
-    public function renderView()
+
+    protected function shutdown()
     {
-        bdump("renderView: " . microtime());
-        // Render the appropriate view here
-    }
-    // Shutdown method
-    protected function shutdown($response)
-    {
-        bdump("shutdown: " . microtime());
-        // Your shutdown logic here
-        parent::shutdown($response);
+        // Závěrečné úkony presenteru
+        parent::shutdown();
     }
 }

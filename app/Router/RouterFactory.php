@@ -10,12 +10,12 @@ use Nette\Application\Routers\RouteList;
 
 final class RouterFactory
 {
-	use Nette\StaticClass;
+    use Nette\StaticClass;
 
-	public static function createRouter(): RouteList
-	{
-		$router = new RouteList;
-		$router->addRoute('<presenter>/<action>', 'Admin:Dashboard:default');
-		return $router;
-	}
+    public static function createRouter(): RouteList
+    {
+        $router = new RouteList;
+        $router->addRoute('<presenter>/<action>', 'Home:default'); // Změna z Admin:Dashboard na Home
+        return $router;
+    }
 }
